@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <cstdio>
 #include <cstdlib>
 #include <string.h>
 
@@ -12,14 +10,13 @@ const int WORDWIDTH = 256;
 struct trie
 {
   int count;
-  char letter;
   bool is_wordend;
   struct trie * next[WORDWIDTH];
 };
 
 int n = 0, T = 0, result = 0;
 // root node
-struct trie root = {0, 0, false, NULL};
+struct trie root = {0, false, NULL};
 
 int init();
 int input();
@@ -27,7 +24,7 @@ int countword(struct trie * node);
 int output();
 
 int buildtree(char *str);
-int deletetree(struct trie * node);
+void deletetree(struct trie * node);
 int printtree(struct trie * node);
 
 int main(void)
@@ -51,8 +48,17 @@ int main(void)
 
 int init()
 {
-	deletetree(&root);
+	struct trie *curr = &root;
+	
+	for(int i = 0; i != WORDWIDTH; i++)
+	    if(curr->next[i] != NULL)
+	    {
+		deletetree(curr->next[i]);
+		curr->next[i] = NULL;
+	    }
+	curr->count = 0;
 	result = 0;
+	
 	return 0;
 }
 
@@ -81,7 +87,7 @@ int buildtree(char *str)
 		memset(newnode, 0, sizeof(struct trie));
 		curr->next[str[i]] = newnode;
 	    }
-	    curr->next[str[i]]->letter = str[i];
+	    // curr->next[str[i]]->letter = str[i];
 	    curr = curr->next[str[i]];
 	    
 	    if(str[i+1] == '\0')
@@ -95,16 +101,18 @@ int buildtree(char *str)
 }
 
 
-int deletetree(struct trie * node)
+void deletetree(struct trie * node)
 {
-	for(int i = 0; i != node->count; i++)
+	for(int i = 0; i != WORDWIDTH; i++)
 	{
-	    for(int j = 0; j != WORDWIDTH; j++)
-		if(node->next[j])
-		    deletetree(node->next[j]);
+	    if(node->next[i])
+	    {
+		deletetree(node->next[i]);
+		node->next[i] = NULL;
+	    }
 	}
-	free(node);
-	return 0;
+	delete node;
+	return;
 }
 
 int printtree(struct trie * node)
@@ -115,11 +123,10 @@ int printtree(struct trie * node)
 
 int countword(struct trie * node)
 {
-	for(int i = 0; i != node->count; i++)
+	for(int i = 0; i != WORDWIDTH; i++)
 	{
-	    for(int j = 0; j != WORDWIDTH; j++)
-		if(node->next[j])
-		    countword(node->next[j]);
+	    if(node->next[i])
+		countword(node->next[i]);
 	}
 	if(node->is_wordend)
 	    result += (node->count)-1;
