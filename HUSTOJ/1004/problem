@@ -1,0 +1,28 @@
+ 
+1004 - String Compare
+
+Time Limit: 2s Memory Limit: 64MB
+Submissions: 878 Solved: 148
+
+Description
+    Maybe there are 750,000 words in English and some words are prefix of other words, for example: the word "acm" can be treat as one prefix of "acmicpc". What's more, most of such pairs of words have relationship between them. Now give you a dictionary, your work is to tell me how many such pairs. There may be other characters in the word, for example '_','-',and so on. Pay attention that 'A' and 'a' are not the same character! 
+Input
+    In the first line of the input file there is an Integer T, which means the number of test cases. Followed by T test cases. For each test case, in the first line there is an integer N(0<N<50000), followed N lines, each contains a word whose length is less than 30 and no space appears in any word. There are no same words in two different lines. 
+Output
+    For each test case, tell me how many such pairs. If the number is larger than 11519, just divide it by 11519 and only output the remainder. 
+Sample Input
+
+    2
+    2
+    acmicpc
+    acm
+    3
+    a
+    abc
+    ab
+
+Sample Output
+
+    1
+    3
+
