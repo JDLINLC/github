@@ -1,2 +1,11 @@
+<<<<<<< HEAD
 *.o
 *.
+=======
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+>>>>>>> 02240e526ea515d73cdbe44cbca68f08c63c3c24
