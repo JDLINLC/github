@@ -3,41 +3,28 @@
 void h(char *n,int l);
 int main(void)
 {
-	char n[10000];
-	int a,b,c,l;
-	int i=0;
+	char n[100];
+	int l;
 
-	printf("Enter two number:\n");
-	while(scanf("%d%d",&a,&b)&&a<=b)
-	{
-		for(a;a<=b;a++)
-		{
-			c=a%10;
-			n[i]=c;
-			while((a=(a/10))!=0)
-			{
-				i +=1;
-				c=a%10;
-				n[i]=c;
-			}
-			l=strlen(n);
-			h(n,l);			
-		}
-	}
-
+	scanf("%s",n);
+	l=strlen(n);
+	printf("%s,%d\n",n,l);
+	n[l]='\0';
+	h(n,l);
 	return 0;
 }
 void h(char *n,int l)
 {
-	int i=0,x=0;
-	int k=l/2;
+	char t[100];
 
-	for(i;i<l;i++,l--)
+	int i;
+	for(i=0;i<l;i++)
 	{
-		if(n[i]==n[l])
-			x++;	
+		t[l-i-1]=n[i];
 	}
-	if(x==k)
-		printf("%s",n);
+	t[l]='\0';
+	if(strcmp(t,n)==0)
+	{
+		printf("%s\n",n);
+	}	
 }
-
