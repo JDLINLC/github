@@ -7,11 +7,13 @@ int main(void)
 	do
 	{
 		scanf("%d",&x);
-		if(x<3)
-		  break;
+		if(x<3&x!=0)
+		  printf("Error!\n");
 		else
+		{
 		  fb(x);
-		printf("\n");
+		  printf("\n");
+		}
 	}while(x!=00);
 
 	return 0;
