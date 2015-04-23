@@ -26,8 +26,8 @@ int main(void)
 			}
 			else
 			{
-				mid=C;
-				name='C';
+				mid=A;
+				name='A';
 			}
 		}
 		else
