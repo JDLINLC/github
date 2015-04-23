@@ -12,8 +12,8 @@ int main(void)
 		else
 		{
 		  fb(x);
-		  printf("\n");
 		}
+		printf("\n");
 	}while(x!=00);
 
 	return 0;
@@ -42,4 +42,6 @@ void fb(int x)
 		}
 		j++;
 	}
+	if(k!=0)
+	  printf("\n");
 }
