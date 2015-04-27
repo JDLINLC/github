@@ -35,9 +35,11 @@ int main(void)
 				else
 				  printf("Error!No result.\n");
 				break;
+			default:
+				printf("Error!No result.\n");
+				break;
 		}
 	}
-
 
 	return 0;
 }
