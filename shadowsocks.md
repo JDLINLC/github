@@ -16,4 +16,4 @@ Create a config file /etc/shadowsocks.json. Example:
 	"fast_open": false
 }
 4.在浏览器上设置代理，如火狐上get add-ons 搜autoprosy安装后设置edit socks5
-
+5.开shadowsocks，命令sslocal -c /etc/shadowsocks.json
