@@ -1,10 +1,11 @@
 #include<stdio.h>
 #include<string.h>
 
+void my_printf(char *x);
+
 int main(void)
 {
 	int n;
-	int i=0;
 	char x[100];
 
 	scanf("%d",&n);
@@ -12,13 +13,20 @@ int main(void)
 	for(;n>0;n--)
 	{
 		gets(x);
-		i=strlen(x);
-		for(;i>0;i--)
-		{
-			printf("%c",x[i-1]);
-		}
+		my_printf(x);
 		putchar('\n');
 	}
 
 	return 0;
+}
+
+void my_printf(char *x)
+{
+	if(*x=='\0')
+		;
+	else
+	{
+		my_printf(x+1);
+		putchar(*x);
+	}
 }
