@@ -10,10 +10,10 @@ int main (void)
 
 	while(start>=0&&end>=0)
 	{
-		printf("radius    volume\n");
+		printf("radius  volume\n");
 		for(;start<=end;start++)
 		{
-			printf("%d     %lf\n",start,BALLVOL(start));
+			printf("%d\t%lf\n",start,BALLVOL(start));
 		}
 		putchar('\n');
 		scanf("%d%d",&start,&end);
