@@ -7,23 +7,13 @@ int main(void)
 
 	while(n!=0)
 	{
-		int u[n],i;
+		int u[n],i=0;
 
 		scanf("%d",&k);
-
-		for(i=0;i<n;i++)
+		getchar();
+		while(scanf("%d",&u[i])&&i<(n-1))
 		{
-			u[i]=i+1;
-		}
-
-		for(i=0;i<n;i++)
-		{
-			if(i==(n-1))
-			{
-				printf("%d\n",u[i]);
-			}
-			else
-				printf("%d ",u[i]);
+			i++;
 		}
 
 		for(i=0;i<(n-k);i++)
