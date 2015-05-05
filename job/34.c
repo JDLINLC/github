@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+#define SWAP(x,y) (x=x+y,y=x-y,x=x-y)
 #define BALLVOL(r) (3.1415926*r*r*r*4/3)
 
 int main (void)
@@ -10,6 +10,10 @@ int main (void)
 
 	while(start>=0&&end>=0)
 	{
+		if(start>end)
+		{
+			SWAP(start,end);
+		}
 		printf("radius  volume\n");
 		for(;start<=end;start++)
 		{
