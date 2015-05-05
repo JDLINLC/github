@@ -14,7 +14,7 @@ int main (void)
 		{
 			SWAP(start,end);
 		}
-		printf("radius  volume\n");
+		printf("radius\tvolume\n");
 		for(;start<=end;start++)
 		{
 			printf("%d\t%lf\n",start,BALLVOL(start));
