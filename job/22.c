@@ -1,44 +1,17 @@
 #include<stdio.h>
-
-enum {COPY,COMMIT};
-
 int main(void)
 {
-	int state;
-	int n,i;
-	char ch;
+	int i=0,n;
+	char c;
 
-	scanf("%d",&n);
-	while(getchar()!='\n')
-	  ;
-	for(i=0;i<n;i++)
+	scanf("%d\n",&n);
+	while(i<n)
 	{
-		state=COPY;
-
-		while((ch=getchar())!='\n')
+		while(c=getchar()!='\n')
 		{
-			switch(state)
-			{
-				case COPY:
-					putchar(ch);
-					if(ch==' ')
-					{
-						state=COMMIT;
-					}
-					break;
-				case COMMIT:
-					if(ch!=' ')
-					{
-						putchar(ch);
-						state=COPY;
-					}
-					break;
-				default:
-					break;
-			}
+			printf("%c",c);
 		}
-
-		putchar('\n');
+		i++;
 	}
 
 	return 0;
