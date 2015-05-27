@@ -2,46 +2,44 @@
 int main(void)
 {
 	int N,n;
-	int i=0,j=0,k=0,m=0;
 
 	scanf("%d",&N);
 	for(;N>0;N--)
 	{
+		int n;
 		scanf("%d",&n);
-		int x[n],*ptr;
-		m=n;
-		ptr=x;
 
-		for(i=1;i<=n;i++)
-		{
-			x[i]=i;
-		}
+		int people[n],*pti=people,i=0,j=0,k=n;
+		
+		for(;i<n;i++)
+			*(pti+i)=i+1;
 
-		while(m>1)
+		while(k!=1)
 		{
-			for(j=0;j<3;j++)
+			i=1;
+			while(i<3)
 			{
-				k++;
-				if(k==n)
-				{
-					k=0;
-				}
-				if(*(ptr+k)==0)
-				{
-					k++;
-				}
+				if(*(pti+j)==0)
+				  j++;
+				else
+				  i++,j++;
+				if(j==n)
+				  j=0;
 			}
-			*(ptr+k)=0;
-			m -=1;
+			while(*(pti+j)==0)
+			{
+				j++;
+				if(j==n)
+				  j=0;
+			}
+
+			*(pti+j)=0;
+			k--;
 		}
 
 		for(i=0;i<n;i++)
-		{
-			if(*(ptr+i)!=0)
-			{
-				printf("%d",*(ptr+i));
-			}
-		}
+			if(*(pti+i)!=0)
+			  printf("%d\n",*(pti+i));
 
 	}
 
