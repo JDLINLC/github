@@ -9,38 +9,41 @@ int main(void)
 {
 	char c,*pc,*p_start;
 	int i=0;
-	struct ch_string head,*current,*p;
-	head.next=NULL;
-	current=&head;
+	struct ch_string *head,*current,*p;
+	head=NULL;
 
 	while((c=getchar())!=EOF)
 	{
+		if(head==NULL)
+		{
+			head=(struct ch_string *)malloc(sizeof(struct ch_string));
+			current=head;
+		}
 		current->ch=c;
 		current->next=(struct ch_string *)malloc(sizeof(struct ch_string));
 		current=current->next;
 	}
-	current->next=NULL;
+	current=NULL;
 
-	p=&head;
+	p=head;
 	while(p)
 	{
 		printf("%c",p->ch);
 		p=p->next;
 		i++;
 	}
-	printf("hello");
 	printf("\n\n");
 
 	pc=(char *)malloc(i*sizeof(char));
 	p_start=pc;
-	p=&head;
+	p=head;
 	while(p)
 	{
 		*pc=p->ch;
 		pc++;
 		p=p->next;
 	}
-	printf("%shello\n",p_start);
+	printf("%s\n",p_start);
 
 	return 0;
 }
