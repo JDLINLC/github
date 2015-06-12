@@ -9,7 +9,7 @@ int main(void)
 {
 	char c,*pc,*p_start;
 	int i=0;
-	struct ch_string *head,*current,*p;
+	struct ch_string *head,*current,*p,*pre;
 	head=NULL;
 
 	while((c=getchar())!=EOF)
@@ -21,9 +21,10 @@ int main(void)
 		}
 		current->ch=c;
 		current->next=(struct ch_string *)malloc(sizeof(struct ch_string));
+		pre=current;
 		current=current->next;
 	}
-	current=NULL;
+	pre->next=NULL;
 
 	p=head;
 	while(p)
