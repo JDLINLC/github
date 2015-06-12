@@ -70,7 +70,7 @@ int main(void)
 			find=current;
 			while(current)
 			{
-				if((current->ch-c)<(prior->ch-c))
+				if((c-current->ch)<(c-find->ch))
 				{
 					find=current;
 				}
