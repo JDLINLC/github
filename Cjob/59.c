@@ -5,8 +5,6 @@ struct ch_string{
 	struct ch_string *next;
 };
 
-void alloc_input(char *s2);
-
 int main(void)
 {
 	char c,*pc,*p_start;
@@ -30,6 +28,7 @@ int main(void)
 		p=p->next;
 		i++;
 	}
+	printf("hello");
 	printf("\n\n");
 
 	pc=(char *)malloc(i*sizeof(char));
@@ -41,7 +40,7 @@ int main(void)
 		pc++;
 		p=p->next;
 	}
-	printf("%s\n",p_start);
+	printf("%shello\n",p_start);
 
 	return 0;
 }
